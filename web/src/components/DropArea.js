@@ -3,9 +3,20 @@ import { useDropzone } from 'react-dropzone';
 import { useState } from 'react';
 
 function MyDropzone() {
-  const [prueba, setPrueba] = useState([]);
+  const [data, setData] = useState();
   const onDrop = useCallback((acceptedFiles) => {
-    // Do something with the files
+    setData(acceptedFiles);
+    fetch('/localhost:8000/emc/', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        return data;
+      });
     console.log(acceptedFiles);
   }, []);
   const {
@@ -17,7 +28,7 @@ function MyDropzone() {
   } = useDropzone({
     onDrop,
   });
-  console.log('Esto es prueba', prueba);
+  console.log('Esto es prueba', data);
   return (
     <div {...getRootProps()}>
       <input {...getInputProps()} />
