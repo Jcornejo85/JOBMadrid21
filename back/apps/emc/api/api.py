@@ -33,8 +33,3 @@ def cargaJson() -> list:
         trueData = json.load(file)
         return trueData
 
-
-[
-    {"predict":374.9303382},
-    {"predict":231.7836556}
-]
