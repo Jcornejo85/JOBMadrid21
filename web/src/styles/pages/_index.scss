@@ -1,4 +1,30 @@
-.main__list {
-  padding-left: 2rem;
-  padding-bottom: 20px;
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  &__title {
+    font-size: 30px;
+    margin: 10px;
+  }
+  &__center {
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+    &--button {
+      height: 50px;
+      width: 120px;
+      margin: 60px;
+    }
+  }
+}
+
+.drop {
+  height: 200px;
+  width: 400px;
+  border: 2px black dotted;
+  &__p {
+    text-align: center;
+  }
 }
