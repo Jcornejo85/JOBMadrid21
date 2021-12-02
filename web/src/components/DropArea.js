@@ -5,7 +5,7 @@ import axios from 'axios';
 import dataFake from '../data/data.json';
 function MyDropzone() {
   const [data, setData] = useState();
-  const [data2, setData2] = useState([dataFake]);
+  const [data2, setData2] = useState(dataFake);
   const [dataTrue, setdataTrue] = useState();
   const onDrop = useCallback((acceptedFiles) => {
     setData(acceptedFiles);
@@ -14,7 +14,7 @@ function MyDropzone() {
     console.log('Esto es data2', data2);
     data2.map((data) => setdataTrue(data));
     console.log(dataTrue);
-    axios.post(`https://localhost:8000/emc/`, { dataTrue }).then((res) => {
+    axios.post('http://localhost:8000/emc/', { data2 }).then((res) => {
       console.log(res);
       console.log(res.data);
     });
