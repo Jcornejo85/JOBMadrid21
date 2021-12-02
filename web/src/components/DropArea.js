@@ -2,11 +2,11 @@ import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useState } from 'react';
 import axios from 'axios';
-import dataFake from '../data/data.json';
+import dataFake from '../data/predict.json';
 
 function MyDropzone(props) {
   const [data, setData] = useState();
-  const [data2, setData2] = useState([dataFake]);
+  const [data2, setData2] = useState(dataFake);
 
   const onDrop = useCallback((acceptedFiles) => {
     setData(acceptedFiles);

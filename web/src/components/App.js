@@ -1,5 +1,5 @@
 // Fichero src/components/App.js
-
+import { useState } from 'react';
 import '../styles/App.scss';
 import MyDropzone from './DropArea';
 import { useState } from 'react';
