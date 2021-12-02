@@ -7,8 +7,13 @@ function MyDropzone() {
   const [data, setData] = useState();
   const onDrop = useCallback((acceptedFiles) => {
     setData(acceptedFiles);
+  });
+
   const handleFetch = () => {
-    axios.post(`https://localhost:8000/emc/`, { data }).then((res) => {
+    const formData = new FormData();
+    formData.append('jsondataRequest', JSON.stringify(data)); //JSON
+
+    axios.post(`https://localhost:8000/emc/`, { formData }).then((res) => {
       console.log(res);
       console.log(res.data);
     });
