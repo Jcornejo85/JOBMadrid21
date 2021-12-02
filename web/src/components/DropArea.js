@@ -6,7 +6,7 @@ function MyDropzone() {
   const [data, setData] = useState();
   const onDrop = useCallback((acceptedFiles) => {
     setData(acceptedFiles);
-    fetch('/localhost:8000/emc/', {
+    fetch('http://localhost:8000/emc/', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
