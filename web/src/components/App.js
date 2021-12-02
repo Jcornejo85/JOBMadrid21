@@ -2,6 +2,7 @@
 
 import '../styles/App.scss';
 import MyDropzone from './DropArea';
+import { useState } from 'react';
 
 const App = () => {
   const [dataTrue, setdataTrue] = useState();
