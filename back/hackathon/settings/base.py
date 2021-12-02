@@ -19,7 +19,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+BASE_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -27,6 +27,32 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+MY_APPS = [
+    'apps.emc',
+]
+
+THIRD_APPS = [
+    'rest_framework',
+    'corsheaders',
+]
+
+
+INSTALLED_APPS = BASE_APPS + MY_APPS + THIRD_APPS
+
+# CORS
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+]
+
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
