@@ -1,24 +1,27 @@
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useState } from 'react';
+import axios from 'axios';
 
 function MyDropzone() {
   const [data, setData] = useState();
   const onDrop = useCallback((acceptedFiles) => {
     setData(acceptedFiles);
-    fetch('/localhost:8000/emc/', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        return data;
-      });
+
     console.log(acceptedFiles);
+    console.log(
+      'Esto es intento de map',
+      acceptedFiles.map((data) => {
+        return data;
+      })
+    );
   }, []);
+  const handleFetch = () => {
+    axios.post(`https://localhost:8000/emc/`, { data }).then((res) => {
+      console.log(res);
+      console.log(res.data);
+    });
+  };
   const {
     getRootProps,
     getInputProps,
@@ -37,6 +40,7 @@ function MyDropzone() {
       ) : (
         <p>Drag 'n' drop some files here, or click to select files</p>
       )}
+      <button onClick={handleFetch}>Boton</button>
     </div>
   );
 }
