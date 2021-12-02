@@ -7,15 +7,6 @@ function MyDropzone() {
   const [data, setData] = useState();
   const onDrop = useCallback((acceptedFiles) => {
     setData(acceptedFiles);
-
-    console.log(acceptedFiles);
-    console.log(
-      'Esto es intento de map',
-      acceptedFiles.map((data) => {
-        return data;
-      })
-    );
-  }, []);
   const handleFetch = () => {
     axios.post(`https://localhost:8000/emc/`, { data }).then((res) => {
       console.log(res);
