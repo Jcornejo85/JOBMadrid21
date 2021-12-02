@@ -18,7 +18,7 @@ const App = () => {
           <MyDropzone setdataTrue={setdataTrue} />
           <button className='main__center--button'>Calcular</button>
         </div>
-        <div className='main__result'>5 4as4 56da654asd</div>
+        <div className='main__result'>{dataTrue}</div>
       </main>
     </div>
   );
