@@ -13,7 +13,7 @@ function MyDropzone(props) {
     const formData = new FormData();
     formData.append('jsondataRequest', JSON.stringify(acceptedFiles)); //JSON
     console.log('Esto es data2', data2);
-    axios.post(`https://localhost:8000/emc/`, { data2 }).then((res) => {
+    axios.post(`http://localhost:8000/emc/`, { data2 }).then((res) => {
       console.log(res);
       console.log(res.data);
       props.setdataTrue(res.data);
@@ -35,7 +35,9 @@ function MyDropzone(props) {
       {isDragActive ? (
         <p className='drop__p'>Drop the files here ...</p>
       ) : (
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p className='drop__p'>
+          Drag 'n' drop some files here, or click to select files
+        </p>
       )}
     </div>
   );

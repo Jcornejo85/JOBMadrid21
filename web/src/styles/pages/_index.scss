@@ -1,13 +1,32 @@
+// .page {
+//   background-size: cover;
+//   height: 100vh;
+// }
+
+.header {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  &__title {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+  }
+  &__img {
+    height: 100px;
+  }
+}
+
 .main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
-  &__title {
-    font-size: 30px;
-    margin: 10px;
-  }
+  margin-top: 100px;
+
   &__center {
     display: flex;
     flex-direction: row;
@@ -16,14 +35,21 @@
       height: 50px;
       width: 120px;
       margin: 60px;
+      background-color: lightblue;
+      border: solid 1px black;
     }
+  }
+  &__result {
+    background-color: lightblue;
+    border-radius: 20%;
+    padding: 20px;
   }
 }
 
 .drop {
   height: 200px;
   width: 400px;
-  border: 2px black dotted;
+  border: 4px lightblue dotted;
   &__p {
     text-align: center;
   }
