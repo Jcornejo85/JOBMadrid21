@@ -12,7 +12,7 @@ const App = () => {
         <MyDropzone setdataTrue={setdataTrue} />
         <button className='main__center--button'>Calcular</button>
       </div>
-      <div>{props.dataTrue}</div>
+      <div>{dataTrue}</div>
     </div>
   );
 };
