@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import '../styles/App.scss';
 import MyDropzone from './DropArea';
-import { useState } from 'react';
 import logo2 from '../images/logo2.png';
 
 const App = () => {
