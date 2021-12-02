@@ -2,22 +2,25 @@ import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useState } from 'react';
 import axios from 'axios';
-
+import dataFake from '../data/data.json';
 function MyDropzone() {
   const [data, setData] = useState();
+  const [data2, setData2] = useState([dataFake]);
+  const [dataTrue, setdataTrue] = useState();
   const onDrop = useCallback((acceptedFiles) => {
     setData(acceptedFiles);
-  });
-
-  const handleFetch = () => {
     const formData = new FormData();
-    formData.append('jsondataRequest', JSON.stringify(data)); //JSON
-
-    axios.post(`https://localhost:8000/emc/`, { formData }).then((res) => {
+    formData.append('jsondataRequest', JSON.stringify(acceptedFiles)); //JSON
+    console.log('Esto es data2', data2);
+    data2.map((data) => setdataTrue(data));
+    console.log(dataTrue);
+    axios.post(`https://localhost:8000/emc/`, { dataTrue }).then((res) => {
       console.log(res);
       console.log(res.data);
     });
-  };
+  });
+
+  const handleFetch = () => {};
   const {
     getRootProps,
     getInputProps,
@@ -27,7 +30,6 @@ function MyDropzone() {
   } = useDropzone({
     onDrop,
   });
-  console.log('Esto es prueba', data);
   return (
     <div {...getRootProps()}>
       <input {...getInputProps()} />
