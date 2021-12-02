@@ -1,4 +1,5 @@
 import json
+import numpy as np
 
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -13,6 +14,7 @@ def emc(request) -> Response:
     if serializer.is_valid():
 
         emc = calculoEmc(serializer.data)
+        print(emc)
         return Response(emc, status = status.HTTP_201_CREATED)
     return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
@@ -21,8 +23,8 @@ def calculoEmc(data:dict) -> float:
     trueData = cargaJson()
     emc = 0
     for i in range(0, len(data)):
-        emc += (trueData[i] - data[i]['predict'])**2
-    return emc
+        emc += (trueData[i] - data[i]['Predict'])**2
+    return emc/len(data)
 
 
 
