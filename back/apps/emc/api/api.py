@@ -8,8 +8,10 @@ from .serializers import EmcSerializer
 
 @api_view(['POST'])
 def emc(request) -> Response:
-    serializer = EmcSerializer(data = request.data, many = True)
+    print(request.data['data2'])
+    serializer = EmcSerializer(data = request.data['data2'], many = True)
     if serializer.is_valid():
+
         emc = calculoEmc(serializer.data)
         return Response(emc, status = status.HTTP_201_CREATED)
     return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
